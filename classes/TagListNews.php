@@ -10,7 +10,7 @@ namespace Contao;
  * @author     Helmut Schottmüller <typolight@aurealis.de>
  * @package    Controller
  */
-class TagListNews extends \TagList
+class TagListNews extends TagList
 {
 	protected $arrNewsarchives = array();
 	
