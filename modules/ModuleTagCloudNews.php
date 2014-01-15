@@ -43,6 +43,7 @@ class ModuleTagCloudNews extends \ModuleTagCloud
 		if (strlen($this->tag_news_archives)) $taglist->newsarchives = deserialize($this->tag_news_archives, TRUE);
 		$this->arrTags = $taglist->getTagList();
 		if ($this->tag_topten) $this->arrTopTenTags = $taglist->getTopTenTagList();
+		if (strlen($this->tag_topten_number) && $this->tag_topten_number > 0) $taglist->topnumber = $this->tag_topten_number;
 		if (strlen($this->Input->get('tag')) && $this->tag_related)
 		{
 			$relatedlist = (strlen($this->Input->get('related'))) ? preg_split("/,/", $this->Input->get('related')) : array();
