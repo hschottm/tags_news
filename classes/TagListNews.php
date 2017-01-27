@@ -14,8 +14,13 @@ class TagListNews extends TagList
 {
 	protected $arrNewsarchives = array();
 	
-	public function getRelatedTagList($for_tags)
+	public function getRelatedTagList($for_tags, $blnExcludeUnpublishedItems = true)
 	{
+		if (TL_MODE == 'BE')
+		{
+			$blnExcludeUnpublishedItems = false;
+		}
+
 		if (!is_array($for_tags)) return array();
 		if (!count($this->arrNewsarchives)) return array();
 
@@ -63,8 +68,13 @@ class TagListNews extends TagList
 		return $arrCloudTags;
 	}
 
-	public function getTagList()
+	public function getTagList($blnExcludeUnpublishedItems = true)
 	{
+		if (TL_MODE == 'BE')
+		{
+			$blnExcludeUnpublishedItems = false;
+		}
+
 		if (count($this->arrCloudTags) == 0)
 		{
 			if (count($this->arrNewsarchives))
